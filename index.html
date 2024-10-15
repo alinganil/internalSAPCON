@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OIEB Receipt Submission</title>
+    <!-- Import Google Fonts for a similar ACU look -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+        input, select, button {
+            margin: 10px 0;
+            padding: 12px;
+            width: 100%;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+        }
+        input, select {
+            background-color: #333;
+            color: #fff;
+        }
+        button {
+            background-color: #9400D3;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        label {
+            font-weight: bold;
+            color: #ddd;
+        }
+        img {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 100%;
+        }
+        h2 {
+            text-align: center;
+            color: #fff;
+        }
+        /* Responsive Design */
+        @media screen and (max-width: 600px) {
+            form {
+                width: 90%;
+            }
+            input, select, button {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <form id="receipt-form" action="/submit_receipt" method="POST" enctype="multipart/form-data">
+        <!-- OIEB Logo -->
+        <img src="ACU OIEB Vertical Logo White.png" alt="OIEB Logo">
+
+        <h2>Submit Your Receipt</h2>
+
+        <!-- Dropdown for Name -->
+        <label for="name">Submitter Name:</label>
+        <select id="name" name="name" required>
+            <option value="Abel Alvarez">Abel Alvarez</option>
+            <option value="Angie Cardenas">Angie Cardenas</option>
+            <option value="Anthony Williams">Anthony Williams</option>
+        </select>
+
+        <!-- Date of Expense -->
+        <label for="date">Date of Expense:</label>
+        <input type="date" id="date" name="date" required>
+
+        <!-- Amount -->
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" required>
+
+        <!-- Merchant -->
+        <label for="merchant">Merchant:</label>
+        <input type="text" id="merchant" name="merchant" required>
+
+        <!-- Expense Category -->
+        <label for="category">Expense Category:</label>
+        <select id="category" name="category" required>
+            <option value="travel">Travel</option>
+            <option value="food">Food</option>
+            <option value="office_supplies">Office Supplies</option>
+            <option value="other">Other</option>
+        </select>
+
+        <!-- Receipt Upload -->
+        <label for="receipt">Upload Receipt:</label>
+        <input type="file" id="receipt" name="receipt" accept="image/*,.pdf" required>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
